@@ -1,13 +1,11 @@
 import { useState } from "react";
 import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
   signInWithGooglePopup,
   signInAuthUserWithUserWithEmailAndPassword,
 } from "../../util/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import "./sign-in-form.styles.scss";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 
 const defaultFormFileds = {
   email: "",
@@ -80,7 +78,7 @@ const SignInForm = () => {
           <Button type="submit">Sing IN</Button>
           <Button
             type="button"
-            buttonType="google"
+            buttonType={BUTTON_TYPE_CLASSES.google}
             onClick={() => signInWithGoogle()}
           >
             GOOGLE Sing IN

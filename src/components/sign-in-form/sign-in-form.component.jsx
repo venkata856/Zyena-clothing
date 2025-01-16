@@ -28,12 +28,8 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const { user } = signInAuthUserWithUserWithEmailAndPassword(
-        email,
-        password,
-      );
+      await signInAuthUserWithUserWithEmailAndPassword(email, password);
 
-      setCurrentUser(user);
       resetForm();
     } catch (error) {
       switch (error.conde) {

@@ -16,6 +16,7 @@ import {
   signInAuthUserWithUserWithEmailAndPassword,
   createAuthUserWithEmailAndPassword,
   signOutUser,
+  signInWithGooglePopup,
 } from "../../util/firebase/firebase.utils";
 
 export function* getSnapShotFromUserAuth(userAuth, additionalDetails) {
@@ -25,7 +26,7 @@ export function* getSnapShotFromUserAuth(userAuth, additionalDetails) {
       userAuth,
       additionalDetails,
     );
-    yield put(singInSucess({ id: userSnapshot, ...userSnapshot }));
+    yield put(singInSucess({ id: userSnapshot.id, ...userSnapshot.data() }));
   } catch (error) {
     yield put(signInFailed(error));
   }
@@ -44,7 +45,7 @@ export function* isUserAuthenticated() {
 
 export function* signInWithGoogle() {
   try {
-    const { user } = yield call(signInWithGoogle());
+    const { user } = yield call(signInWithGooglePopup);
     yield call(getSnapShotFromUserAuth, user);
   } catch (error) {
     yield put(signInFailed(error));

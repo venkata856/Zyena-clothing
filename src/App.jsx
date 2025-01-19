@@ -7,7 +7,7 @@ import {
   onAuthStateChangedListener,
 } from "./util/firebase/firebase.utils";
 import { useDispatch } from "react-redux";
-import { setCurrentUser } from "./store/user/user.action";
+import { setCurrentUser } from "./store/user/user.reducer";
 
 import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop-component";

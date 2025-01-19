@@ -1,6 +1,6 @@
 import { ItemCount, CartIconContainer, ShoppingIcon } from "./cart-icon.styles";
 import { useSelector } from "react-redux";
-import { setIsCartopen } from "../../store/cart/cart.action";
+import { setIsCartopen } from "../../store/cart/cart.reducer";
 import {
   selectCartCount,
   selectIsCartOpen,

@@ -5,7 +5,7 @@ import Category from "../category/category.component";
 import { useDispatch } from "react-redux";
 
 import { useEffect } from "react";
-import { setCategories } from "../../store/categories/category.action";
+import { setCategories } from "../../store/categories/category.reducer";
 import { getCategoriesAndDocuments } from "../../util/firebase/firebase.utils";
 import "./shop.styles.scss";
 
@@ -15,7 +15,7 @@ const Shop = () => {
   useEffect(() => {
     const getCategoriesMap = async () => {
       const categoryArray = await getCategoriesAndDocuments();
-      console.log(categoryArray);
+
       dispatch(setCategories(categoryArray));
     };
     getCategoriesMap();
